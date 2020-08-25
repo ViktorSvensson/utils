@@ -1,7 +1,7 @@
 {
   "name": "@floss/utils",
   "description": "Javascript helpers.",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "author": "Viktor Svensson <viktor@carlviktorsvensson.com> (https://www.carlviktorsvensson.com)",
   "license": "MIT",
   "main": "lib/index.js",
