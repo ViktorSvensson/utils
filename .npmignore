@@ -1,0 +1,15 @@
+.github
+.vscode
+__tests__
+coverage
+docs
+node_modules
+.editorconfig
+.eslintignore
+.eslintrc.json
+.prettierrc
+.travis.yml
+tsconfig.json
+tsconfig.build.json
+jest.config.js
+.npmrc

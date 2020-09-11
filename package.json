@@ -1,7 +1,7 @@
 {
   "name": "@floss/utils",
   "description": "Javascript helpers.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Viktor Svensson <viktor@carlviktorsvensson.com> (https://www.carlviktorsvensson.com)",
   "license": "MIT",
   "main": "lib/index.js",
@@ -42,12 +42,12 @@
     "doc": "docs",
     "lib": "lib"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ViktorSvensson/utils.git"
-  },
   "bugs": {
     "url": "https://github.com/ViktorSvensson/utils/issues"
   },
-  "homepage": "https://github.com/ViktorSvensson/utils#readme"
+  "homepage": "https://github.com/ViktorSvensson/utils#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
