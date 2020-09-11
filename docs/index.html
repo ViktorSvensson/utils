@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@veloxia/veloxia</title>
-	<meta name="description" content="Documentation for @veloxia/veloxia">
+	<title>@floss/utils</title>
+	<meta name="description" content="Documentation for @floss/utils">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@veloxia/veloxia</a>
+					<a href="index.html" class="title">@floss/utils</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>@veloxia/veloxia</h1>
+			<h1>@floss/utils</h1>
 		</div>
 	</div>
 </header>
@@ -67,74 +67,68 @@
 				<p>[<img src="https://img.shields.io/badge/TypeScript-3.8-blue.svg" alt="TypeScript version">][typescript-38]
 					[![Build Status - Travis][travis-badge]][travis-ci]
 				[![Node.js CI][ga-badge]][ga-ci]</p>
-				<a href="#veloxiaveloxia" id="veloxiaveloxia" style="color: inherit; text-decoration: none;">
-					<h1>@veloxia/veloxia</h1>
+				<a href="#flossutils" id="flossutils" style="color: inherit; text-decoration: none;">
+					<h1>@floss/utils</h1>
 				</a>
 				<p>Some javascript helper functions.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
-				<pre><code class="language-bash">npm install @veloxia/veloxia</code></pre>
+				<pre><code class="language-bash">npm install @floss/utils</code></pre>
 				<a href="#import" id="import" style="color: inherit; text-decoration: none;">
 					<h3>Import</h3>
 				</a>
 				<p>ES6/Typescript</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> v <span class="hljs-keyword">from</span> <span class="hljs-string">"@veloxia/veloxia"</span>;</code></pre>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">"@floss/utils"</span>;</code></pre>
 				<p>CommonJS</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> v = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@veloxia/veloxia"</span>);</code></pre>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> fu = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@floss/utils"</span>);</code></pre>
 				<a href="#example-usage" id="example-usage" style="color: inherit; text-decoration: none;">
 					<h2>Example usage</h2>
 				</a>
 				<a href="#file-reading-and-file-writing" id="file-reading-and-file-writing" style="color: inherit; text-decoration: none;">
 					<h3>File reading and file writing</h3>
 				</a>
-				<p><code>v.fw()</code> and <code>v.fr()</code> provides quick access to file read/write. The helpers enforce providing the <code>__dirname</code> to avoid opening or writing to the wrong file. If the file extension is <code>.json</code>, the content is automatically encoded/decoded using <code>JSON.stringify()</code> and <code>JSON.parse()</code>.</p>
+				<p><code>_.fw()</code> and <code>_.fr()</code> provides quick access to file read/write. The helpers enforce providing the <code>__dirname</code> to avoid opening or writing to the wrong file. If the file extension is <code>.json</code>, the content is automatically encoded/decoded using <code>JSON.stringify()</code> and <code>JSON.parse()</code>.</p>
 				<pre><code class="language-javascript"><span class="hljs-comment">// Save an object as JSON</span>
 <span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">name</span>: <span class="hljs-string">"Hello world"</span> };
-v.fw(__dirname, <span class="hljs-string">"file.json"</span>, obj);
+_.fw(__dirname, <span class="hljs-string">"file.json"</span>, obj);
 
 <span class="hljs-comment">// Open the file and parse automatically</span>
-<span class="hljs-keyword">const</span> file = v.fr(__dirname, <span class="hljs-string">"file.json"</span>);
+<span class="hljs-keyword">const</span> file = _.fr(__dirname, <span class="hljs-string">"file.json"</span>);
 <span class="hljs-built_in">console</span>.log(file);
 <span class="hljs-comment">// =&gt; {name: 'Hello world'}</span></code></pre>
 				<a href="#utils" id="utils" style="color: inherit; text-decoration: none;">
 					<h3>Utils</h3>
 				</a>
-				<p><code>v.awaitCondition()</code> lets you await anything.</p>
+				<p><code>_.awaitCondition()</code> lets you await anything.</p>
 				<pre><code class="language-javascript">(<span class="hljs-keyword">async</span> () =&gt; {
   <span class="hljs-keyword">let</span> aVariable;
-  <span class="hljs-keyword">set</span><span class="hljs-title">Timeout</span>(<span class="hljs-params">(</span>) =&gt; {
-    aVariable = <span class="hljs-string">"Hello"</span>;
-  }, <span class="hljs-number">5000</span>);
-  <span class="hljs-built_in">console</span>.log(aVariable);
-  <span class="hljs-comment">// =&gt; undefined</span>
-  <span class="hljs-keyword">await</span> awaitCondition(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> aVariable !== <span class="hljs-string">"undefined"</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-  }
-  <span class="hljs-built_in">console</span>.log(aVariable);
-  <span class="hljs-comment">// =&gt; "Hello"</span>
+  <span class="hljs-keyword">set</span><span class="hljs-title">Timeout</span>(<span class="hljs-params">(</span>) =&gt; (<span class="hljs-params">aVariable = <span class="hljs-string">"Hello"</span></span>), 5000);
+  <span class="hljs-title">console</span>.<span class="hljs-title">log</span>(<span class="hljs-params">aVariable</span>); // =&gt; <span class="hljs-title">undefined</span>
+  <span class="hljs-title">await</span> <span class="hljs-title">awaitCondition</span>(<span class="hljs-params">(</span>) =&gt; <span class="hljs-title">typeof</span> <span class="hljs-title">aVariable</span> !== "<span class="hljs-title">undefined</span>");
+  <span class="hljs-title">console</span>.<span class="hljs-title">log</span>(<span class="hljs-params">aVariable</span>); // =&gt; "<span class="hljs-title">Hello</span>"
 })();</code></pre>
 				<a href="#formatting" id="formatting" style="color: inherit; text-decoration: none;">
 					<h3>Formatting</h3>
 				</a>
-				<p><code>v.numberFormat()</code> adds thousands separators/decimal points to a number.</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> val = v.numberFormat(<span class="hljs-number">8999.9112</span>, <span class="hljs-number">2</span>, <span class="hljs-string">","</span>, <span class="hljs-string">" "</span>);
+				<p><code>_.numberFormat()</code> adds thousands separators/decimal points to a number.</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> val = _.numberFormat(<span class="hljs-number">8999.9112</span>, <span class="hljs-number">2</span>, <span class="hljs-string">","</span>, <span class="hljs-string">" "</span>);
 <span class="hljs-built_in">console</span>.log(val); <span class="hljs-comment">// 8 999,91</span></code></pre>
 				<a href="#dates" id="dates" style="color: inherit; text-decoration: none;">
 					<h3>Dates</h3>
 				</a>
-				<p><code>v.date()</code> applies a format template to a date object.</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> now = v.date(<span class="hljs-string">"Y-m-d"</span>);
+				<p><code>_.date()</code> applies a format template to a date object.</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> now = _.date(<span class="hljs-string">"Y-m-d"</span>);
 <span class="hljs-comment">// =&gt; 2020-06-11</span>
-<span class="hljs-keyword">const</span> yesterday = v.date(<span class="hljs-string">"Y-m-d"</span>, <span class="hljs-built_in">Date</span>.now() - <span class="hljs-number">1000</span> * <span class="hljs-number">3600</span> * <span class="hljs-number">24</span>);
+<span class="hljs-keyword">const</span> yesterday = _.date(<span class="hljs-string">"Y-m-d"</span>, <span class="hljs-built_in">Date</span>.now() - <span class="hljs-number">1000</span> * <span class="hljs-number">3600</span> * <span class="hljs-number">24</span>);
 <span class="hljs-comment">// =&gt; 2020-06-10</span></code></pre>
 				<p>[nodejs-badge]: <a href="https://img.shields.io/badge/Node.js-&gt;=%2012.13-blue.svg">https://img.shields.io/badge/Node.js-&gt;=%2012.13-blue.svg</a>
-					[travis-badge]: <a href="https://travis-ci.org/veloxiadev/veloxia.js.svg?branch=master">https://travis-ci.org/veloxiadev/veloxia.js.svg?branch=master</a>
-					[travis-ci]: <a href="https://travis-ci.org/github/veloxiadev/veloxia.js">https://travis-ci.org/github/veloxiadev/veloxia.js</a>
+					[travis-badge]: <a href="https://travis-ci.org/ViktorSvensson/utils.svg?branch=master">https://travis-ci.org/ViktorSvensson/utils.svg?branch=master</a>
+					[travis-ci]: <a href="https://travis-ci.org/github/ViktorSvensson/utils">https://travis-ci.org/github/ViktorSvensson/utils</a>
 					[typescript]: <a href="https://www.typescriptlang.org/">https://www.typescriptlang.org/</a>
 					[typescript-38]: <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html</a>
-					[ga-badge]: <a href="https://github.com/veloxiadev/veloxia.js/workflows/Node.js%20CI/badge.svg">https://github.com/veloxiadev/veloxia.js/workflows/Node.js%20CI/badge.svg</a>
-				[ga-ci]: <a href="https://github.com/veloxiadev/veloxia.js/actions">https://github.com/veloxiadev/veloxia.js/actions</a></p>
+					[ga-badge]: <a href="https://github.com/ViktorSvensson/utils/workflows/Node.js%20CI/badge.svg">https://github.com/ViktorSvensson/utils/workflows/Node.js%20CI/badge.svg</a>
+				[ga-ci]: <a href="https://github.com/ViktorSvensson/utils/actions">https://github.com/ViktorSvensson/utils/actions</a></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -148,6 +142,21 @@ v.fw(__dirname, <span class="hljs-string">"file.json"</span>, obj);
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_date_index_.html">&quot;date/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_encoding_encode_.html">&quot;encoding/encode&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_encoding_index_.html">&quot;encoding/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_file_extension_.html">&quot;file/extension&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_file_fr_.html">&quot;file/fr&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_file_fw_.html">&quot;file/fw&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_file_index_.html">&quot;file/index&quot;</a>
@@ -166,15 +175,6 @@ v.fw(__dirname, <span class="hljs-string">"file.json"</span>, obj);
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_index_.html">&quot;index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_lang_index_.html">&quot;lang/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_lang_sv_se_index_.html">&quot;lang/sv-<wbr>se/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_lang_sv_se_terms_.html">&quot;lang/sv-<wbr>se/terms&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_random_index_.html">&quot;random/index&quot;</a>
@@ -212,6 +212,9 @@ v.fw(__dirname, <span class="hljs-string">"file.json"</span>, obj);
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 		</div>
 	</div>

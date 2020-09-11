@@ -1,8 +1,8 @@
 {
-  "name": "@veloxia/veloxia",
+  "name": "@floss/utils",
   "description": "Javascript helpers.",
-  "version": "0.2.5",
-  "author": "Viktor Svensson <viktor@veloxia.se> (https://www.veloxia.se)",
+  "version": "0.3.0",
+  "author": "Viktor Svensson <viktor@carlviktorsvensson.com> (https://www.carlviktorsvensson.com)",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
@@ -44,10 +44,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/veloxiadev/veloxia.js.git"
+    "url": "git+https://github.com/ViktorSvensson/utils.git"
   },
   "bugs": {
-    "url": "https://github.com/veloxiadev/veloxia.js/issues"
+    "url": "https://github.com/ViktorSvensson/utils/issues"
   },
-  "homepage": "https://github.com/veloxiadev/veloxia.js#readme"
+  "homepage": "https://github.com/ViktorSvensson/utils#readme"
 }
